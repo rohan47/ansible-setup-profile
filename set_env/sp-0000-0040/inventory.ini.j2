@@ -1,0 +1,33 @@
+[servers]
+{% for host in servers.split(',') %}
+{{ host }}
+{% endfor %}
+
+[clients]
+{% for host in clients.split(',') %}
+{{ host }}
+{% endfor %}
+
+[server1]
+{{ servers.split(',')[0] }}
+
+[server2]
+{{ servers.split(',')[1] }}
+
+[server3]
+{{ servers.split(',')[2] }}
+
+[server4]
+{{ servers.split(',')[3] }}
+
+[client1]
+{{ clients.split(',')[0] }}
+
+[client2]
+{{ clients.split(',')[1] }}
+
+[client3]
+{{ clients.split(',')[2] }}
+
+[client4]
+{{ clients.split(',')[3] }}

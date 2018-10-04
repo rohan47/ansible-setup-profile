@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  tasks:
+
+  - name: split string and set fact (servers)
+    set_fact:
+      servers: "{{ servers }}"
+
+  - name: split string and set fact (clients)
+    set_fact:
+      clients: "{{ clients }}"
+
+  - template:
+      src: /root/set_env/sp-0000-0040/inventory.ini.j2
+      dest: /root/set_env/sp-0000-0040/inventory.ini
+  - template:
+      src: /root/set_env/sp-0000-0040/group_vars/server1/public.j2
+      dest: /root/set_env/sp-0000-0040/group_vars/server1/public
+  - template:
+      src: /root/set_env/sp-0000-0040/group_vars/server2/public.j2
+      dest: /root/set_env/sp-0000-0040/group_vars/server2/public
+  - template:
+      src: /root/set_env/sp-0000-0040/group_vars/server3/public.j2
+      dest: /root/set_env/sp-0000-0040/group_vars/server3/public
+  - template:
+      src: /root/set_env/sp-0000-0040/group_vars/server4/public.j2
+      dest: /root/set_env/sp-0000-0040/group_vars/server4/public
+...
+

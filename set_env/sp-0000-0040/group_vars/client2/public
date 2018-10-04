@@ -1,0 +1,5 @@
+---
+
+glusterip: {{ clients.split(',')[2] }}
+
+
