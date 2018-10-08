@@ -1,0 +1,6 @@
+---
+glusterip: {{ hostvars[inventory_hostname]['server%s' | format(var)] }}
+
+devices:
+  - '/dev/sdb'
+  - '/dev/sdc'
