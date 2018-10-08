@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  tasks:
+
+  - name: split string and set fact (servers)
+    set_fact:
+      servers: "{{ servers }}"
+
+  - name: split string and set fact (clients)
+    set_fact:
+      clients: "{{ clients }}"
+
+  - template:
+      src: exportenv.yml.j2
+      dest: exportenv.yml
+
+  - template:
+      src: systems.yml.j2
+      dest: systems.yml
+
+  - include: exportenv.yml
+...
+
