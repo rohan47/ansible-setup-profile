@@ -2,22 +2,17 @@
 - hosts: localhost
   tasks:
 
-  - name: split string and set fact (servers)
-    set_fact:
-      servers: "{{ servers }}"
-
-  - name: split string and set fact (clients)
-    set_fact:
-      clients: "{{ clients }}"
-
+  # Create exportenv.yml from the src jinja2 file
   - template:
-      src: exportenv.yml.j2
+      src: templates/exportenv.yml.j2
       dest: exportenv.yml
 
+  # Create systems file containing servers and clients from the src jinja2 file
   - template:
-      src: systems.yml.j2
+      src: templates/systems.yml.j2
       dest: systems.yml
 
+  # includes the tasks from exportenv.yml which was created above
   - include: exportenv.yml
 ...
 
