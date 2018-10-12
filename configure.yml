@@ -10,6 +10,10 @@
     set_fact:
       clients: "{{ clients }}"
 
+  - name: split string and set fact (devices)
+    set_fact:
+      devices: "{{ devices }}"
+
   - template:
       src: exportenv.yml.j2
       dest: exportenv.yml
