@@ -10,12 +10,16 @@
     set_fact:
       clients: "{{ clients }}"
 
+  - name: split string and set fact (devices)
+    set_fact:
+      devices: "{{ devices }}"
+
   - template:
-      src: exportenv.yml.j2
+      src: jinja2-files/exportenv.yml.j2
       dest: exportenv.yml
 
   - template:
-      src: systems.yml.j2
+      src: jinja2-files/systems.yml.j2
       dest: systems.yml
 
   - include: exportenv.yml
