@@ -14,10 +14,10 @@
   - include_vars: systems.yml
 
   - template:
-      src: sp-0000-0040/inventory.ini.j2
+      src: jinja2-files/inventory.ini.j2
       dest: sp-0000-0040/inventory.ini
 
-
+# Create directory for servers and copy public file with value set to server ip/hostname
 {% for server in servers.split(',') %}
 {% set var = loop.index %}
   - file:
@@ -33,6 +33,7 @@
 
 {% endfor %}
 
+# Create directory for clients and copy public file with value set to client ip/hostname
 {% for client in clients.split(',') %}
 {% set var = loop.index %}
   - file:

@@ -14,14 +14,17 @@
     set_fact:
       devices: "{{ devices }}"
 
+  # Create exportenv.yml from the src jinja2 file
   - template:
       src: jinja2-files/exportenv.yml.j2
       dest: exportenv.yml
 
+  # Create systems file containing servers and clients from the src jinja2 file
   - template:
       src: jinja2-files/systems.yml.j2
       dest: systems.yml
 
+  # includes the tasks from exportenv.yml which was created above
   - include: exportenv.yml
 ...
 
