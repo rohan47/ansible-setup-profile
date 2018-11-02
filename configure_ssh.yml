@@ -1,0 +1,24 @@
+---
+- hosts: all
+  gather_facts: no
+  remote_user: centos
+  become: true
+  tasks:
+
+  - name: Edit sshd_config
+    lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: '#PermitRootLogin yes'
+      line: 'PermitRootLogin yes'
+
+  - name: copy authorized keys
+    authorized_key:
+      user: root
+      state: present
+      key: "{{ lookup('file', '/opt/qa/private/gbench.pub') }}"
+
+  - name: restart sshd
+    service:
+      name: sshd
+      state: restarted
+...

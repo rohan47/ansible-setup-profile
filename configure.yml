@@ -14,5 +14,9 @@
 
   # includes the tasks from exportenv.yml which was created above
   - include: exportenv.yml
+
+  - copy:
+      src: setup-profile/inventory.ini
+      dest: inventory.ini
 ...
 

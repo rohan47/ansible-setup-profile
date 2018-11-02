@@ -1,0 +1,5 @@
+---
+# Common variables for all hosts
+
+ansible_connection: ssh
+ansible_user: centos
